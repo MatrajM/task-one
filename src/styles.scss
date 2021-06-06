@@ -1,1 +1,194 @@
 /* You can add global styles to this file, and also import other style files */
+
+//@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+html,body {height: 100%; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$primary: #74b9ff;
+
+body {
+    margin: 0;
+    font-size: 18px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: $primary;
+    padding: 1em 0;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    a.logo {
+        font-weight: bold;
+        margin-left: 1em;
+        text-decoration: none;
+        color:white;
+    }
+/* Failed venture
+    nav {
+        float: right;
+        margin-right: 2em;
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            display: flex;
+
+            li a {
+                padding: 1em;
+                
+                &:hover {
+                    background: darken($primary, 10%);
+                    text-decoration: none;
+                    color:white;
+                }
+            }
+        }
+    }
+*/
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+/*  Material elements test
+
+.mat-input-element {
+	caret-color: black;
+}
+
+.mat-form-field-label {
+    color: rgba(0,0,0,.54) !important;
+    font-size: 20px;   
+} 
+
+.mat-form-field-underline {
+    background-color: #74b9ff!important;
+} 
+  
+.mat-form-field-ripple {
+    background-color: darken($primary, 10%) !important;;
+} 
+*/
+  .pagCon {
+      
+        position: relative;
+      width: 100%;
+      background-color: $primary;
+    
+    .ngx-pagination .current {
+        
+        background: #0563af;
+        font-size: 20px;
+      }
+      .ngx-pagination a:hover {
+        background:darken($primary, 10%)!important;
+      
+      }
+      .ngx-pagination {
+        
+        font-size: 20px;
+        //background-color: chartreuse;
+        margin-top: 5px;
+        padding: 0px;
+      }
+      .select-size {
+         
+        background-color: #0563af;
+        color: white;
+        padding: 3px;
+        width: 50px;
+        border: none;
+        font-size: 20px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        -webkit-appearance: button;
+        appearance: none;
+        outline: none;
+      } 
+
+      .select-gender{
+         
+        background-color: #0563af;
+        color: white;
+        padding: 3px;
+        width: 140px;
+        border: none;
+        font-size: 20px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        -webkit-appearance: button;
+        appearance: none;
+        outline: none;
+      } 
+  
+      .selS{
+        position: absolute;
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+      .selS::before{
+        content: "^";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        text-align: center;
+        font-size: 18px;
+        line-height: 33px;
+        color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+      .selS:hover::before {
+        color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+  
+      .selG{
+        position: absolute;
+        margin-top: 5px;
+        margin-left: 70%;
+      }
+      .selG::before{
+        content: "^";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100%;
+        text-align: center;
+        font-size: 18px;
+        line-height: 33px;
+        color: rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+      .selG:hover::before {
+        color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+  
+    }
+    .btn-first-last {
+      background: $primary;
+      border:none;
+      font-size: 20px;
+      margin-top: 5px;
+      padding: 3px;
+    }
+    .btn-first-last:hover{
+      background:darken($primary, 10%)!important;
+    }
+  
+
+
+ 
+  
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

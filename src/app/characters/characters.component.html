@@ -1,0 +1,109 @@
+<h1 fxLayout fxLayoutAlign="center center">Characters</h1>
+
+<table>
+    
+  <tr>
+    <th>Character</th>
+    <th>Alive</th>
+    <th>Gender</th>
+    <th>Culture</th>
+    <th>Allegiances</th>
+    <th># of Books</th>
+  </tr>
+
+    <tr *ngFor="let item of collection | paginate: { itemsPerPage: itemsPerPage , currentPage: p, totalItems: totalItems }; ">
+      <td *ngIf=" item.name;else  unknown "> {{item.name!.toUpperCase()}}<br> 
+        
+        <span *ngFor="let alias of item.aliases;let first = first;let last = last">
+          <span *ngIf="item; else unknown">
+            <a >{{alias}}</a>{{last ? ' ' : ' ,'}}
+          </span>
+        </span> 
+      
+      </td>
+      <ng-template #unknown><td>unknown</td></ng-template> 
+      <td *ngIf=" item.died;else  alive "> Died, {{item.died}}</td>
+      <ng-template #alive><td>Yes</td></ng-template> 
+      <td *ngIf=" item.gender;else  unknown "> {{item.gender}}</td>
+      <td *ngIf=" item.culture;else  unknown "> {{item.culture}}</td>
+
+      <td>
+            <!-- modal open 
+              <button  (click)="open(content)">View</button>
+            -->
+        <span *ngFor="let item of item.allegiances;let first = first;let last = last">
+            <span *ngIf="item; else unknown">
+              <a href="{{item}}" style="color:black">{{item}}</a> <br> <br>{{last ? ' ' : ' '}}
+            </span>
+        </span>   
+      </td>
+      <td > {{item.books.length}}</td>
+    </tr>
+
+</table>
+
+<hr>
+
+<div class="pagCon" fxLayout="row"  fxLayoutAlign="start start">
+
+  <button class="btn-first-last" style="margin-left: 6%;" type="button" (click)="onClick()" >« First</button>
+
+  <div class="my-pagination">
+    <pagination-controls   (pageChange)="getPage(p = $event)" ></pagination-controls>
+  </div>
+
+  <div class="selS">
+    <select class="select-size" (change)="handlePageSizeChange($event)" >
+      <option *ngFor="let size of pageSizes" [Value]="size"[selected]="size === 25">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+
+  <button class="btn-first-last" type="button" (click)="onLast()">Last »</button>
+  
+  <div class="selG">
+    <select class="select-gender">
+      <option value="" disabled selected hidden>Gender</option>
+      <option (click)="getGender(gender = 'Male', p = p)">
+        Male
+      </option>
+      <option (click)="getGender(gender = 'Female', p = p)">
+        Female
+      </option>
+      <option (click)="getGender(gender = 'Unknown', p = p)">
+        Unknown
+      </option>
+    </select>
+  </div>
+
+</div>
+
+<hr>
+<!------------MODAL---------------
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Allegiances</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+  <div class="modal-body">
+    <tr>
+      <td>
+          <span *ngFor="let item of item.allegiances;let first = first;let last = last">
+            <span *ngIf="item ;else unknown">
+              <a ng-href="/{{'item'}}">aa</a> <br> {{last ? ' ' : ' '}}
+            </span>
+          </span>   
+      </td>
+    </tr>
+  </div>
+    <div class="modal-footer"></div>
+</ng-template>
+----------MODAL---------------->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
