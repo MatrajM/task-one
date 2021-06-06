@@ -29,7 +29,7 @@ header {
         text-decoration: none;
         color:white;
     }
-/* Failed venture
+
     nav {
         float: right;
         margin-right: 2em;
@@ -40,7 +40,7 @@ header {
             display: flex;
 
             li a {
-                padding: 1em;
+                padding:21% 50% ;
                 
                 &:hover {
                     background: darken($primary, 10%);
@@ -50,7 +50,7 @@ header {
             }
         }
     }
-*/
+
 }
 
 h1 {
